@@ -6,36 +6,45 @@ using namespace std;
 
 class Character {
 protected:
-    string name;
+    char name[30];
     int health;
     int attack;
+    int maxHealth;
     int defense;
+    int maxDefense;
     int speed;
     bool isPlayer;
-    int maxHealth;
-    int maxDefense;
+    bool defenseActive = false;
 public:
-    Character(string _name, int _health, int _attack, int _defense, int _speed, bool _isPlayer);
+    Character(char _name[], int _health, int maxHealth, int _attack, int _defense, int _speed, bool _isPlayer);
 
     virtual void doAttack(Character *target) = 0;
     virtual void takeDamage(int damage) = 0;
 
     //TODO: Implementar metodo de defensa
     //Incrementar la defensa un 20% solo por el turno actual
-    void defend();
-    void finishDefend();
 
     bool flee(Character* target);
-    string getName();
+    string toString();
+    bool getIsPlayer();
+
     int getHealth();
+    void upHealth(int newStat);
+    int getMaxHealth();
+    void upMaxHealth(int newStat);
 
     int getAttack();
+    void upAttack(int newStat);
+
     int getDefense();
-    int getMaxHealth();
-    int getMaxDefense();
-    bool getIsPlayer();
+    void upDefense(int newStat);
+    void defend();
+    void finishDefend();
+    void upMaxDefense(int newStat);
+
     int getSpeed();
-    string toString();
+    void upSpeed(int newStat);
+
 };
 
 

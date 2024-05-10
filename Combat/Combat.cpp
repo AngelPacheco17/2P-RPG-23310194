@@ -68,7 +68,7 @@ Character* Combat::getTarget(Character* attacker) {
 }
 
 void Combat::doCombat() {
-    cout<< "Inicio del combate" << endl;
+    cout<< "\nInicio del Combate" << endl;
     combatPrep();
     int round = 1;
     //Este while representa las rondas del combate
@@ -77,7 +77,7 @@ void Combat::doCombat() {
         vector<Character*>::iterator it = participants.begin();
         registerActions(it);
         executeActions(it);
-
+        cout<<endl;
         round++;
     }
 
@@ -85,7 +85,6 @@ void Combat::doCombat() {
         cout << "You win!" << endl;
     } else {
         cout << "You lose!" << endl;
-
     }
 }
 
